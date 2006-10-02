@@ -29,8 +29,8 @@ import de.ailis.scilter.util.FileUtils;
 
 
 /**
- * A command line program to scale a picture with one of the scaling filters of
- * Scilter.
+ * A simple command line program to scale a picture with one of the scaling
+ * filters of Scilter.
  * 
  * @author Klaus Reimer (k@ailis.de)
  * @version $Revision$
@@ -41,13 +41,13 @@ public class Scilter
     /**
      * Private constructor
      */
-    
+
     private Scilter()
     {
         super();
     }
-    
-    
+
+
     /**
      * First parameter is the scaling method, second parameter is the source
      * file and the third parameter is the destination file.

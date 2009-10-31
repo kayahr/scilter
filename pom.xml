@@ -5,11 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.ailis.scilter</groupId>
   <artifactId>scilter</artifactId>
-  <packaging>jar</packaging>
-  <name>scilter</name>
+  <name>Scilter</name>
   <version>1.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
   <url>http://www.ailis.de/~k/projects/scilter/</url>
-  <description>A library with various different scaling algorithms like scale2x, scale3x, hq2x, hq3x and hq4x.</description>
+  <description>
+    A library with various different scaling algorithms like scale2x, scale3x, hq2x, hq3x and hq4x.
+  </description>
   <inceptionYear>2009</inceptionYear>
   <organization>
     <name>Klaus Reimer</name>
@@ -19,7 +21,6 @@
   <scm>
     <url>http://scm.ailis.de/viewvc/svn/java/scilter/trunk/</url>
     <connection>scm:svn:http://scm.ailis.de/svn/java/scilter/trunk</connection>
-    <!-- <developerConnection>scm:svn:svn+ssh://k@ailis.de/var/lib/svn/java/scilter/trunk</developerConnection> -->
   </scm>
   
   <build>
@@ -42,34 +43,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
-            <source>1.5</source>
-            <target>1.5</target>
+            <source>1.6</source>
+            <target>1.6</target>
+            <encoding>UTF-8</encoding>
           </configuration>
-        </plugin>
-        <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <configuration>
-            <descriptors>
-              <descriptor>src/main/assembly/unix-bin.xml</descriptor>
-              <descriptor>src/main/assembly/windows-bin.xml</descriptor>
-              <descriptor>src/main/assembly/src.xml</descriptor>
-            </descriptors>
-          </configuration>
-          <executions>
-            <execution>
-              <id>package-assembly</id>
-              <goals>
-                <goal>attached</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-          <!-- <configuration>
-            <tagBase>svn+ssh://k@ailis.de/var/lib/svn/java/scilter/tags</tagBase>
-          </configuration>-->
-        </plugin>
+        </plugin>        
         <plugin>
           <artifactId>maven-surefire-report-plugin</artifactId>
           <groupId>org.apache.maven.plugins</groupId>
@@ -88,13 +66,6 @@
   
   <reporting>
     <plugins>
-      <!-- <plugin>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-      </plugin> -->      
-      <!-- <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>changelog-maven-plugin</artifactId>
-      </plugin> -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>taglist-maven-plugin</artifactId>
@@ -108,8 +79,7 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <configuration>
           <links>
-            <link>http://java.sun.com/j2se/1.5.0/docs/api</link>
-            <link>http://www.junit.org/junit/javadoc/</link>
+            <link>http://java.sun.com/javase/6/docs/api/</link>
           </links>
         </configuration>
       </plugin>
@@ -121,9 +91,6 @@
              <reports>
                <report>dependencies</report>
                <report>project-team</report>
-               <!-- <report>mailing-list</report> -->
-               <!-- <report>cim</report> -->
-               <!-- <report>issue-tracking</report> -->
                <report>license</report>
                <report>scm</report>
              </reports>
@@ -133,17 +100,13 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
       </plugin>
-      <!-- <plugin>
-        <artifactId>maven-clover-plugin</artifactId>
-      </plugin> -->
       <plugin>
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-pmd-plugin</artifactId>
          <configuration>
-            <targetJdk>1.5</targetJdk>
+            <targetJdk>1.6</targetJdk>
             <rulesets>
                <ruleset>/rulesets/basic.xml</ruleset>
-               <!-- <ruleset>/rulesets/controversial.xml</ruleset> -->
             </rulesets>
             <format>xml</format>
             <linkXref>true</linkXref>
@@ -152,27 +115,40 @@
          </configuration>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>2.0-beta-6</version>
+        <configuration>
+          <locales>en</locales>
+          <inputEncoding>UTF-8</inputEncoding>
+          <outputEncoding>UTF-8</outputEncoding>
+        </configuration>
+      </plugin>      
+      <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>changes-maven-plugin</artifactId>
         <reportSets>
           <reportSet>
             <reports>
               <report>changes-report</report>
-              <!-- <report>jira-report</report> -->
             </reports>
           </reportSet>
         </reportSets>
       </plugin>
     </plugins>
   </reporting>
-  
+
+  <ciManagement>
+    <system>Hudson</system>
+    <url>https://www.ailis.de/hudson/job/scilter/</url>
+  </ciManagement>
+    
   <developers>
     <developer>
       <id>k</id>
       <name>Klaus Reimer</name>
       <email>k@ailis.de</email>
       <roles>
-        <role>Project Manager</role>
         <role>Architect</role>
       </roles>
       <timezone>+2</timezone>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+
+  <bannerLeft>
+    <name>Scilter</name>
+    <src>images/logo.png</src>
+    <href>http://www.ailis.de/~k/projects/scilter/</href>
+  </bannerLeft>
+  
+  <body>
+  
+    <links>
+      <item name="hqx" href="http://en.wikipedia.org/wiki/Hqx" />
+      <item name="scale2/3x" href="http://www.cokeandcode.com/scale2x/" />
+    </links>
+    
+    <menu name="Scilter">
+      <item name="About" href="index.html" />
+    </menu>
+    
+    <menu ref="reports" />
+    
+  </body>
+  
+</project>

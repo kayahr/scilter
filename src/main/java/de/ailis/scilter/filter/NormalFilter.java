@@ -48,7 +48,7 @@ public class NormalFilter implements ScaleFilter
      * @see de.ailis.scilter.ScaleFilter#scale(int[], int, int)
      */
     
-    public int[] scale(int[] pixels, int width, int height)
+    public int[] scale(final int[] pixels, final int width, final int height)
     {
         return pixels;
     }
@@ -58,8 +58,18 @@ public class NormalFilter implements ScaleFilter
      * @see de.ailis.scilter.ScaleFilter#scale(java.awt.image.BufferedImage)
      */
     
-    public BufferedImage scale(BufferedImage image)
+    public BufferedImage scale(final BufferedImage image)
     {
         return image;
+    }
+
+
+    /**
+     * @see de.ailis.scilter.ScaleFilter#getImageType()
+     */
+    
+    public int getImageType()
+    {
+        return -1;
     }
 }

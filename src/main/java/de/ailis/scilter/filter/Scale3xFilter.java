@@ -20,6 +20,8 @@
 
 package de.ailis.scilter.filter;
 
+import java.awt.image.BufferedImage;
+
 import de.ailis.scilter.AbstractScaleFilter;
 
 
@@ -193,5 +195,15 @@ public class Scale3xFilter extends AbstractScaleFilter
         }
 
         return this.dstImage;
+    }
+
+
+    /**
+     * @see de.ailis.scilter.ScaleFilter#getImageType()
+     */
+    
+    public int getImageType()
+    {
+        return BufferedImage.TYPE_INT_RGB;
     }
 }

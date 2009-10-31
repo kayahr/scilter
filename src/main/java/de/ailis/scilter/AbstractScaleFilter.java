@@ -20,11 +20,13 @@
 package de.ailis.scilter;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
+import java.awt.image.IndexColorModel;
 
 
 /**
  * A base class for the scale filters implementing some common functionality.
- *
+ * 
  * @author Klaus Reimer (k@ailis.de)
  * @version $Revision$
  */
@@ -35,7 +37,7 @@ public abstract class AbstractScaleFilter implements ScaleFilter
      * @see ScaleFilter#scale(java.awt.image.BufferedImage)
      */
 
-    public BufferedImage scale(BufferedImage image)
+    public BufferedImage scale(final BufferedImage image)
     {
         int[] pixels;
         int width, height;
@@ -48,15 +50,30 @@ public abstract class AbstractScaleFilter implements ScaleFilter
         height = image.getHeight();
 
         // Scale the pixels
-        pixels = scale(image.getRGB(0, 0, width, height, null, 0, width), width, height);
-        
+        pixels = scale(image.getRGB(0, 0, width, height, null, 0, width),
+            width, height);
+
         // Determine new picture size
         scaleFactor = getScaleFactor();
         newWidth = width * scaleFactor;
         newHeight = height * scaleFactor;
 
         // Create and return the new picture
-        out = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
+        int outType = getImageType();
+        if (outType == -1)
+        {
+            outType = image.getType();
+            final ColorModel colorModel = image.getColorModel();
+            if (colorModel instanceof IndexColorModel)
+                out = new BufferedImage(newWidth, newHeight, outType,
+                    (IndexColorModel) colorModel);
+            else
+                out = new BufferedImage(newWidth, newHeight, outType);
+        }
+        else
+        {
+            out = new BufferedImage(newWidth, newHeight, outType);
+        }
         out.setRGB(0, 0, newWidth, newHeight, pixels, 0, newWidth);
         return out;
     }

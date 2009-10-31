@@ -20,6 +20,8 @@
 
 package de.ailis.scilter.filter;
 
+import java.awt.image.BufferedImage;
+
 import de.ailis.scilter.AbstractScaleFilter;
 import de.ailis.scilter.util.ColorUtils;
 
@@ -73,7 +75,7 @@ public class Hq4xFilter extends AbstractScaleFilter
 
     private static int[] buildLut16to32()
     {
-        int[] lut16to32 = new int[65536];
+        final int[] lut16to32 = new int[65536];
         for (int i = 0; i < 65536; i++)
         {
             lut16to32[i] = ((i & 0xF800) << 8) + ((i & 0x07E0) << 5)
@@ -91,7 +93,7 @@ public class Hq4xFilter extends AbstractScaleFilter
 
     private static int[] buildRgbToYuv()
     {
-        int[] rgbToYuv = new int[65536];
+        final int[] rgbToYuv = new int[65536];
         for (int i = 0; i < 32; i++)
         {
             for (int j = 0; j < 64; j++)
@@ -129,7 +131,7 @@ public class Hq4xFilter extends AbstractScaleFilter
      * @see de.ailis.scilter.ScaleFilter#scale(int[], int, int)
      */
     
-    public int[] scale(int[] image, int width, int height)
+    public int[] scale(final int[] image, final int width, final int height)
     {
         return scalePixels(ColorUtils.convertRgb888To565(image), width, height);
     }
@@ -146,7 +148,7 @@ public class Hq4xFilter extends AbstractScaleFilter
      * @param c2
      */
 
-    private void interp1(int[] pixels, int offset, int c1, int c2)
+    private void interp1(final int[] pixels, final int offset, final int c1, final int c2)
     {
         pixels[offset] = (c1 * 3 + c2) >> 2;
     }
@@ -163,7 +165,7 @@ public class Hq4xFilter extends AbstractScaleFilter
      * @param c2
      */
 
-    private void interp2(int[] pixels, int offset, int c1, int c2, int c3)
+    private void interp2(final int[] pixels, final int offset, final int c1, final int c2, final int c3)
     {
         pixels[offset] = (c1 * 2 + c2 + c3) >> 2;
     }
@@ -180,7 +182,7 @@ public class Hq4xFilter extends AbstractScaleFilter
      * @param c2
      */
 
-    private void interp3(int[] pixels, int offset, int c1, int c2)
+    private void interp3(final int[] pixels, final int offset, final int c1, final int c2)
     {
         pixels[offset] = ((((c1 & 0x00FF00) * 7 + (c2 & 0x00FF00)) & 0x0007F800) + (((c1 & 0xFF00FF) * 7 + (c2 & 0xFF00FF)) & 0x07F807F8)) >> 3;
     }
@@ -197,7 +199,7 @@ public class Hq4xFilter extends AbstractScaleFilter
      * @param c2
      */
 
-    private void interp5(int[] pixels, int offset, int c1, int c2)
+    private void interp5(final int[] pixels, final int offset, final int c1, final int c2)
     {
         pixels[offset] = (c1 + c2) >> 1;
     }
@@ -215,7 +217,7 @@ public class Hq4xFilter extends AbstractScaleFilter
      * @param c3
      */
 
-    private void interp6(int[] pixels, int offset, int c1, int c2, int c3)
+    private void interp6(final int[] pixels, final int offset, final int c1, final int c2, final int c3)
     {
         pixels[offset] = ((((c1 & 0x00FF00) * 5 + (c2 & 0x00FF00) * 2 + (c3 & 0x00FF00)) & 0x0007F800) + (((c1 & 0xFF00FF)
             * 5 + (c2 & 0xFF00FF) * 2 + (c3 & 0xFF00FF)) & 0x07F807F8)) >> 3;
@@ -234,7 +236,7 @@ public class Hq4xFilter extends AbstractScaleFilter
      * @param c3
      */
 
-    private void interp7(int[] pixels, int offset, int c1, int c2, int c3)
+    private void interp7(final int[] pixels, final int offset, final int c1, final int c2, final int c3)
     {
         pixels[offset] = ((((c1 & 0x00FF00) * 6 + (c2 & 0x00FF00) + (c3 & 0x00FF00)) & 0x0007F800) + (((c1 & 0xFF00FF)
             * 6 + (c2 & 0xFF00FF) + (c3 & 0xFF00FF)) & 0x07F807F8)) >> 3;
@@ -252,7 +254,7 @@ public class Hq4xFilter extends AbstractScaleFilter
      * @param c2
      */
 
-    private void interp8(int[] pixels, int offset, int c1, int c2)
+    private void interp8(final int[] pixels, final int offset, final int c1, final int c2)
     {
         pixels[offset] = ((((c1 & 0x00FF00) * 5 + (c2 & 0x00FF00) * 3) & 0x0007F800) + (((c1 & 0xFF00FF) * 5 + (c2 & 0xFF00FF) * 3) & 0x07F807F8)) >> 3;
     }
@@ -265,7 +267,7 @@ public class Hq4xFilter extends AbstractScaleFilter
      * @param w2
      */
 
-    private boolean diff(int w1, int w2)
+    private boolean diff(final int w1, final int w2)
     {
         this.yuv1 = RGBTOYUV[w1];
         this.yuv2 = RGBTOYUV[w2];
@@ -288,13 +290,13 @@ public class Hq4xFilter extends AbstractScaleFilter
      * @return The hq3x scaled pixel data
      */
 
-    private int[] scalePixels(int[] pixels, int width, int height)
+    private int[] scalePixels(final int[] pixels, final int width, final int height)
     {
         int index, newIndex;
         int newWidth, newHeight, newWidth2, newWidth3;
         int prevLine, newLine;
-        int w[] = new int[10];
-        int c[] = new int[10];
+        final int w[] = new int[10];
+        final int c[] = new int[10];
         int[] newPixels;
         int newIndexWidth, newIndexWidth2, newIndexWidth3;
 
@@ -5494,5 +5496,15 @@ public class Hq4xFilter extends AbstractScaleFilter
         }
 
         return newPixels;
+    }
+
+
+    /**
+     * @see de.ailis.scilter.ScaleFilter#getImageType()
+     */
+    
+    public int getImageType()
+    {
+        return BufferedImage.TYPE_INT_RGB;
     }
 }

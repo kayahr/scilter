@@ -20,6 +20,8 @@
 
 package de.ailis.scilter.filter;
 
+import java.awt.image.BufferedImage;
+
 import de.ailis.scilter.AbstractScaleFilter;
 
 
@@ -61,7 +63,7 @@ public class Scale2xFilter extends AbstractScaleFilter
      * @see de.ailis.scilter.ScaleFilter#scale(int[], int, int)
      */
     
-    public int[] scale(int[] pixels, int width, int height)
+    public int[] scale(final int[] pixels, final int width, final int height)
     {
         this.width = width;
         this.height = height;
@@ -91,7 +93,7 @@ public class Scale2xFilter extends AbstractScaleFilter
      * @return True if the pixels are different
      */
 
-    private boolean different(int a, int b)
+    private boolean different(final int a, final int b)
     {
         return a != b;
     }
@@ -108,7 +110,7 @@ public class Scale2xFilter extends AbstractScaleFilter
      *            The value of the pixel to set
      */
 
-    private void setDestPixel(int x, int y, int p)
+    private void setDestPixel(final int x, final int y, final int p)
     {
         this.dstImage[x + (y * this.width * 2)] = p;
     }
@@ -146,13 +148,13 @@ public class Scale2xFilter extends AbstractScaleFilter
      *            The y location in the source image of the pixel to process
      */
 
-    private void process(int x, int y)
+    private void process(final int x, final int y)
     {
-        int B = getSourcePixel(x, y - 1);
-        int D = getSourcePixel(x - 1, y);
-        int E = getSourcePixel(x, y);
-        int F = getSourcePixel(x + 1, y);
-        int H = getSourcePixel(x, y + 1);
+        final int B = getSourcePixel(x, y - 1);
+        final int D = getSourcePixel(x - 1, y);
+        final int E = getSourcePixel(x, y);
+        final int F = getSourcePixel(x + 1, y);
+        final int H = getSourcePixel(x, y + 1);
         int E0 = E;
         int E1 = E;
         int E2 = E;
@@ -170,5 +172,15 @@ public class Scale2xFilter extends AbstractScaleFilter
         setDestPixel((x * 2) + 1, y * 2, E1);
         setDestPixel((x * 2), (y * 2) + 1, E2);
         setDestPixel((x * 2) + 1, (y * 2) + 1, E3);
+    }
+
+
+    /**
+     * @see de.ailis.scilter.ScaleFilter#getImageType()
+     */
+    
+    public int getImageType()
+    {
+        return BufferedImage.TYPE_INT_RGB;
     }
 }

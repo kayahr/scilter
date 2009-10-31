@@ -36,10 +36,25 @@ public interface ScaleFilter
      * 
      * @return The scale factor.
      */
-    
+
     public int getScaleFactor();
-    
-    
+
+
+    /**
+     * Returns the image type of the result this scale filter will produce. It
+     * may return -1 to indiciate that the filter is using the input image type
+     * as output image type (The nearest neighbor and normal filter will do this
+     * for example because the first one is not adding additional colors (so the
+     * image type is not important) and the second one does not change anything
+     * at all).
+     * 
+     * @return The image type of the scaled result or -1 if it is always the
+     *         input image type
+     */
+
+    public int getImageType();
+
+
     /**
      * Scales the specified image and returns the new scaled image.
      * 
@@ -59,7 +74,8 @@ public interface ScaleFilter
      *            The pixel array
      * @param width
      *            The image width
-     * @param height The image height
+     * @param height
+     *            The image height
      * @return The scaled pixel data
      */
 

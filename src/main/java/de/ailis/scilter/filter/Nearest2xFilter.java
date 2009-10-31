@@ -46,7 +46,7 @@ public class Nearest2xFilter extends AbstractScaleFilter
      * @see de.ailis.scilter.ScaleFilter#scale(int[], int, int)
      */
     
-    public int[] scale(int[] pixels, int width, int height)
+    public int[] scale(final int[] pixels, final int width, final int height)
     {
         int newWidth, newHeight, index;
         int[] newPixels;
@@ -76,5 +76,15 @@ public class Nearest2xFilter extends AbstractScaleFilter
             index += newWidth;
         }
         return newPixels;
+    }
+
+
+    /**
+     * @see de.ailis.scilter.ScaleFilter#getImageType()
+     */
+    
+    public int getImageType()
+    {
+        return -1;
     }
 }

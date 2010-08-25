@@ -129,14 +129,14 @@ public class Scale2xFilter extends AbstractScaleFilter
      * @return The pixel value at the specified location
      */
 
-    private int getSourcePixel(int x, int y)
+    private int getSourcePixel(final int x, final int y)
     {
-        x = Math.max(0, x);
-        x = Math.min(this.width - 1, x);
-        y = Math.max(0, y);
-        y = Math.min(this.height - 1, y);
+        int x2 = Math.max(0, x);
+        x2 = Math.min(this.width - 1, x2);
+        int y2 = Math.max(0, y);
+        y2 = Math.min(this.height - 1, y2);
 
-        return this.srcImage[x + (y * this.width)];
+        return this.srcImage[x2 + (y2 * this.width)];
     }
 
 

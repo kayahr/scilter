@@ -146,8 +146,8 @@ public class Hq3xFilter extends AbstractScaleFilter
      *            The pixel array
      * @param offset
      *            The offset of the pixel to calculate
-     * @param c1
-     * @param c2
+     * @param c1 TODO Document me.
+     * @param c2 TODO Document me.
      */
 
     private void interp1(final int[] pixels, final int offset, final int c1, final int c2)
@@ -163,9 +163,9 @@ public class Hq3xFilter extends AbstractScaleFilter
      *            The pixel array
      * @param offset
      *            The offset of the pixel to calculate
-     * @param c1
-     * @param c2
-     * @param c3
+     * @param c1 TODO Document me.
+     * @param c2 TODO Document me.
+     * @param c3 TODO Document me.
      */
 
     private void interp2(final int[] pixels, final int offset, final int c1, final int c2, final int c3)
@@ -180,8 +180,8 @@ public class Hq3xFilter extends AbstractScaleFilter
      *            The pixel array
      * @param offset
      *            The offset of the pixel to calculate
-     * @param c1
-     * @param c2
+     * @param c1 TODO Document me.
+     * @param c2 TODO Document me.
      */
 
     private void interp3(final int[] pixels, final int offset, final int c1, final int c2)
@@ -197,9 +197,9 @@ public class Hq3xFilter extends AbstractScaleFilter
      *            The pixel array
      * @param offset
      *            The offset of the pixel to calculate
-     * @param c1
-     * @param c2
-     * @param c3
+     * @param c1 TODO Document me.
+     * @param c2 TODO Document me.
+     * @param c3 TODO Document me.
      */
 
     private void interp4(final int[] pixels, final int offset, final int c1, final int c2, final int c3)
@@ -215,8 +215,8 @@ public class Hq3xFilter extends AbstractScaleFilter
      *            The pixel array
      * @param offset
      *            The offset of the pixel to calculate
-     * @param c1
-     * @param c2
+     * @param c1 TODO Document me.
+     * @param c2 TODO Document me.
      */
 
     private void interp5(final int[] pixels, final int offset, final int c1, final int c2)
@@ -228,8 +228,9 @@ public class Hq3xFilter extends AbstractScaleFilter
     /**
      * Diff
      *
-     * @param w1
-     * @param w2
+     * @param w1 TODO Document me.
+     * @param w2 TODO Document me.
+     * @return TODO Document me.
      */
 
     private boolean diff(final int w1, final int w2)

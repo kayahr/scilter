@@ -10,7 +10,7 @@
   
   <groupId>de.ailis.scilter</groupId>
   <artifactId>scilter</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Scilter</name>
   <url>http://www.ailis.de/~k/projects/scilter/</url>

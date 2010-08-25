@@ -5,6 +5,11 @@
     <author email="k@ailis.de">Klaus Reimer</author>
   </properties>
   <body>
+    <release version="1.0.1" date="2010-08-25" desc="Minor update">
+      <action dev="k" type="fix" date="2010-08-25">
+        Fixed Java 6 warnings.
+      </action>      
+    </release>
     <release version="1.0.0" date="2006-10-02" desc="Initial release">
     </release>
   </body>

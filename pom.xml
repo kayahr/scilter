@@ -1,60 +1,27 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <artifactId>maven-java</artifactId>
+    <groupId>de.ailis.maven</groupId>
+    <version>7</version>
+  </parent>   
+  
   <groupId>de.ailis.scilter</groupId>
   <artifactId>scilter</artifactId>
-  <name>Scilter</name>
   <version>1.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
+  <name>Scilter</name>
   <url>http://www.ailis.de/~k/projects/scilter/</url>
   <description>
     A library with various different scaling algorithms like scale2x, scale3x, hq2x, hq3x and hq4x.
   </description>
-  <inceptionYear>2009</inceptionYear>
+  <inceptionYear>2010</inceptionYear>
   <organization>
     <name>Klaus Reimer</name>
     <url>http://www.ailis.de/~k/</url>
   </organization>
-  
-  <scm>
-    <url>http://scm.ailis.de/viewvc/svn/java/scilter/trunk/</url>
-    <connection>scm:svn:http://scm.ailis.de/svn/java/scilter/trunk</connection>
-  </scm>
-  
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <configuration>
-            <archive>
-              <manifest>
-                <mainClass>de.ailis.scilter.Launcher</mainClass>
-                <packageName>de.ailis.scilter</packageName>
-                <addClasspath>true</addClasspath>
-              </manifest>
-            </archive>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <configuration>
-            <source>1.6</source>
-            <target>1.6</target>
-            <encoding>UTF-8</encoding>
-          </configuration>
-        </plugin>        
-        <plugin>
-          <artifactId>maven-surefire-report-plugin</artifactId>
-          <groupId>org.apache.maven.plugins</groupId>
-        </plugin> 
-      </plugins>
-    </pluginManagement>
-  </build>
   
   <licenses>
     <license>
@@ -64,85 +31,6 @@
     </license>
   </licenses>
   
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>taglist-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>jxr-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <configuration>
-          <links>
-            <link>http://java.sun.com/javase/6/docs/api/</link>
-          </links>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-         <reportSets>
-           <reportSet>
-             <reports>
-               <report>dependencies</report>
-               <report>project-team</report>
-               <report>license</report>
-               <report>scm</report>
-             </reports>
-           </reportSet>
-        </reportSets>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-      </plugin>
-      <plugin>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-pmd-plugin</artifactId>
-         <configuration>
-            <targetJdk>1.6</targetJdk>
-            <rulesets>
-               <ruleset>/rulesets/basic.xml</ruleset>
-            </rulesets>
-            <format>xml</format>
-            <linkXref>true</linkXref>
-            <sourceEncoding>utf-8</sourceEncoding>
-            <minimumTokens>100</minimumTokens>
-         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>2.0-beta-6</version>
-        <configuration>
-          <locales>en</locales>
-          <inputEncoding>UTF-8</inputEncoding>
-          <outputEncoding>UTF-8</outputEncoding>
-        </configuration>
-      </plugin>      
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>changes-maven-plugin</artifactId>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>changes-report</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-    </plugins>
-  </reporting>
-
-  <ciManagement>
-    <system>Hudson</system>
-    <url>https://www.ailis.de/hudson/job/scilter/</url>
-  </ciManagement>
-    
   <developers>
     <developer>
       <id>k</id>
@@ -151,27 +39,65 @@
       <roles>
         <role>Architect</role>
       </roles>
-      <timezone>+2</timezone>
+      <timezone>+1</timezone>
       <url>http://www.ailis.de/~k/</url>
     </developer>        
   </developers>
   
-   <distributionManagement>
+  <scm>
+    <url>http://www.ailis.de/~k/hg/java/scilter</url>
+    <connection>scm:hg:http://www.ailis.de/~k/hg/java/scilter</connection>
+    <developerConnection>scm:hg:ssh://k@ailis.de/hg/java/scilter</developerConnection>
+  </scm>  
+  
+  <repositories>  
     <repository>
       <id>ailis-releases</id>
       <name>Ailis Maven Releases</name>
-      <url>https://www.ailis.de/nexus/content/repositories/releases</url>
+      <url>http://www.ailis.de/nexus/content/groups/public/</url>
+      <snapshots><enabled>false</enabled></snapshots>
     </repository>
-    <snapshotRepository>
+    <repository>
       <id>ailis-snapshots</id>
       <name>Ailis Maven Snapshots</name>
-      <url>https://www.ailis.de/nexus/content/repositories/snapshots</url>
-    </snapshotRepository>
+      <url>http://www.ailis.de/nexus/content/groups/public-snapshots/</url>
+      <releases><enabled>false</enabled></releases>
+    </repository>
+  </repositories>
+   
+  <distributionManagement>
     <site>
-      <id>k-website</id>
-      <url>scpexe://k@ailis.de/home/k/public_html/projects/scilter</url>
+      <id>project-website</id>
+      <url>scpexe://k@ailis.de/home/k/public_html/projects/scilter/</url>
     </site>
   </distributionManagement>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>de.ailis.scilter.Launcher</mainClass>
+              <packageName>de.ailis.scilter</packageName>
+              <addClasspath>true</addClasspath>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>  
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
   
   <dependencies>
     <dependency>

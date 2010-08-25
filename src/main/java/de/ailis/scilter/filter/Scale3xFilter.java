@@ -2,19 +2,19 @@
  * $Id$
  * Copyright (C) 2006 Klaus Reimer <k@ailis.de>
  * Based on public domain code ImageScale3x and RawScale3x from Kevin Glass.
- * 
- * This program is free software; you can redistribute it and/or modify it 
- * under the terms of the GNU Lesser General Public License as published by the 
- * Free Software Foundation; either version 2.1 of the License, or (at your 
+ *
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published by the
+ * Free Software Foundation; either version 2.1 of the License, or (at your
  * option) any later version.
- * 
- * This program is distributed in the hope that it will be useful, but WITHOUT 
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License 
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
  * for more details.
- * 
- * You should have received a copy of the GNU Lesser General Public License 
- * along with this program; if not, write to the Free Software Foundation, 
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program; if not, write to the Free Software Foundation,
  * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
@@ -29,7 +29,7 @@ import de.ailis.scilter.AbstractScaleFilter;
  * Java implementation of the scale3x magnification filter. Based on the Java
  * classes ImageScale3x and RawScale3x from Kevin Glass (which were released
  * into the public domain).
- * 
+ *
  * @author Klaus Reimer (k@ailis.de)
  * @version $Revision$
  */
@@ -47,12 +47,13 @@ public class Scale3xFilter extends AbstractScaleFilter
 
     /** The height of the image */
     private int height;
-       
-    
+
+
     /**
      * @see de.ailis.scilter.ScaleFilter#getScaleFactor()
      */
-    
+
+    @Override
     public int getScaleFactor()
     {
         return 3;
@@ -62,7 +63,7 @@ public class Scale3xFilter extends AbstractScaleFilter
     /**
      * Check if two pixels are different. Place holder for maybe some clever
      * code about tolerance checking
-     * 
+     *
      * @param a
      *            The first pixel value
      * @param b
@@ -70,7 +71,7 @@ public class Scale3xFilter extends AbstractScaleFilter
      * @return True if the pixels are different
      */
 
-    private boolean different(int a, int b)
+    private boolean different(final int a, final int b)
     {
         return a != b;
     }
@@ -78,7 +79,7 @@ public class Scale3xFilter extends AbstractScaleFilter
 
     /**
      * Set a pixel in the destination image data
-     * 
+     *
      * @param x
      *            The x location of the pixel to set
      * @param y
@@ -87,7 +88,7 @@ public class Scale3xFilter extends AbstractScaleFilter
      *            The value of the pixel to set
      */
 
-    private void setDestPixel(int x, int y, int p)
+    private void setDestPixel(final int x, final int y, final int p)
     {
         this.dstImage[x + (y * this.width * 3)] = p;
     }
@@ -96,7 +97,7 @@ public class Scale3xFilter extends AbstractScaleFilter
     /**
      * Get a pixel from the source image. This handles bonds checks and resolves
      * to edge pixels
-     * 
+     *
      * @param x
      *            The x location of the pixel to retrieve
      * @param y
@@ -118,24 +119,24 @@ public class Scale3xFilter extends AbstractScaleFilter
     /**
      * Process a specific pixel. This will generate 4 pixels in the destination
      * image based on the scale2x algorithm
-     * 
+     *
      * @param x
      *            The x location in the source image of the pixel to process
      * @param y
      *            The y location in the source image of the pixel to process
      */
 
-    private void process(int x, int y)
+    private void process(final int x, final int y)
     {
-        int A = getSourcePixel(x - 1, y - 1);
-        int B = getSourcePixel(x, y - 1);
-        int C = getSourcePixel(x + 1, y - 1);
-        int D = getSourcePixel(x - 1, y);
-        int E = getSourcePixel(x, y);
-        int F = getSourcePixel(x + 1, y);
-        int G = getSourcePixel(x - 1, y + 1);
-        int H = getSourcePixel(x, y + 1);
-        int I = getSourcePixel(x + 1, y + 1);
+        final int A = getSourcePixel(x - 1, y - 1);
+        final int B = getSourcePixel(x, y - 1);
+        final int C = getSourcePixel(x + 1, y - 1);
+        final int D = getSourcePixel(x - 1, y);
+        final int E = getSourcePixel(x, y);
+        final int F = getSourcePixel(x + 1, y);
+        final int G = getSourcePixel(x - 1, y + 1);
+        final int H = getSourcePixel(x, y + 1);
+        final int I = getSourcePixel(x + 1, y + 1);
         int E0 = E;
         int E1 = E;
         int E2 = E;
@@ -173,14 +174,15 @@ public class Scale3xFilter extends AbstractScaleFilter
         setDestPixel((x * 3) + 1, (y * 3) + 2, E7);
         setDestPixel((x * 3) + 2, (y * 3) + 2, E8);
     }
-    
+
 
     /**
      * @see de.ailis.scilter.ScaleFilter#scale(int[], int, int)
      */
-    
-    public int[] scale(int[] pixels, int width, int height)
-    {        
+
+    @Override
+    public int[] scale(final int[] pixels, final int width, final int height)
+    {
         this.width = width;
         this.height = height;
         this.srcImage = pixels;
@@ -201,7 +203,8 @@ public class Scale3xFilter extends AbstractScaleFilter
     /**
      * @see de.ailis.scilter.ScaleFilter#getImageType()
      */
-    
+
+    @Override
     public int getImageType()
     {
         return BufferedImage.TYPE_INT_RGB;

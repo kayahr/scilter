@@ -2,19 +2,19 @@
  * $Id$
  * Copyright (C) 2006 Klaus Reimer <k@ailis.de>
  * Based on hq2x.cpp Copyright (C) 2003 Maxim Stepin <maxst@hiend3d.com>
- * 
- * This program is free software; you can redistribute it and/or modify it 
- * under the terms of the GNU Lesser General Public License as published by the 
- * Free Software Foundation; either version 2.1 of the License, or (at your 
+ *
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published by the
+ * Free Software Foundation; either version 2.1 of the License, or (at your
  * option) any later version.
- * 
- * This program is distributed in the hope that it will be useful, but WITHOUT 
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License 
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
  * for more details.
- * 
- * You should have received a copy of the GNU Lesser General Public License 
- * along with this program; if not, write to the Free Software Foundation, 
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program; if not, write to the Free Software Foundation,
  * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
@@ -29,7 +29,7 @@ import de.ailis.scilter.util.ColorUtils;
 /**
  * Java implementation of the hq2x magnification filter. Based on Maxim Stepin's
  * C implementation.
- * 
+ *
  * @author Klaus Reimer (k@ailis.de)
  * @version $Revision$
  */
@@ -69,7 +69,7 @@ public class Hq2xFilter extends AbstractScaleFilter
 
     /**
      * Builds and returns the LUT16To32 table.
-     * 
+     *
      * @return The LUT16To32 table
      */
 
@@ -87,7 +87,7 @@ public class Hq2xFilter extends AbstractScaleFilter
 
     /**
      * Builds and returns the RgbToYuv table.
-     * 
+     *
      * @return The RgbToYuv table
      */
 
@@ -121,6 +121,7 @@ public class Hq2xFilter extends AbstractScaleFilter
      * @see de.ailis.scilter.ScaleFilter#getScaleFactor()
      */
 
+    @Override
     public int getScaleFactor()
     {
         return 2;
@@ -131,6 +132,7 @@ public class Hq2xFilter extends AbstractScaleFilter
      * @see de.ailis.scilter.ScaleFilter#scale(int[], int, int)
      */
 
+    @Override
     public int[] scale(final int[] image, final int width, final int height)
     {
         return scalePixels(ColorUtils.convertRgb888To565(image), width, height);
@@ -139,7 +141,7 @@ public class Hq2xFilter extends AbstractScaleFilter
 
     /**
      * Interpolation method 1.
-     * 
+     *
      * @param pixels
      *            The pixel array
      * @param offset
@@ -156,7 +158,7 @@ public class Hq2xFilter extends AbstractScaleFilter
 
     /**
      * Interpolation method 2.
-     * 
+     *
      * @param pixels
      *            The pixel array
      * @param offset
@@ -174,7 +176,7 @@ public class Hq2xFilter extends AbstractScaleFilter
 
     /**
      * Interpolation method 6.
-     * 
+     *
      * @param pixels
      *            The pixel array
      * @param offset
@@ -193,7 +195,7 @@ public class Hq2xFilter extends AbstractScaleFilter
 
     /**
      * Interpolation method 7.
-     * 
+     *
      * @param pixels
      *            The pixel array
      * @param offset
@@ -212,7 +214,7 @@ public class Hq2xFilter extends AbstractScaleFilter
 
     /**
      * Interpolation method 9.
-     * 
+     *
      * @param pixels
      *            The pixel array
      * @param offset
@@ -230,7 +232,7 @@ public class Hq2xFilter extends AbstractScaleFilter
 
     /**
      * Diff
-     * 
+     *
      * @param w1
      * @param w2
      */
@@ -248,7 +250,7 @@ public class Hq2xFilter extends AbstractScaleFilter
     /**
      * Scaled an RGB 565 pixel data array with the hq3x algorithm and returns
      * the new RGB data.
-     * 
+     *
      * @param pixels
      *            The RGB 565 pixel data of the original picture
      * @param width
@@ -3061,7 +3063,8 @@ public class Hq2xFilter extends AbstractScaleFilter
     /**
      * @see de.ailis.scilter.ScaleFilter#getImageType()
      */
-    
+
+    @Override
     public int getImageType()
     {
         return BufferedImage.TYPE_INT_RGB;

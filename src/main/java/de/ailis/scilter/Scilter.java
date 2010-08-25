@@ -1,19 +1,19 @@
 /*
  * $Id$
  * Copyright (C) 2006 Klaus Reimer <k@ailis.de>
- * 
- * This program is free software; you can redistribute it and/or modify it 
- * under the terms of the GNU Lesser General Public License as published by the 
- * Free Software Foundation; either version 2.1 of the License, or (at your 
+ *
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published by the
+ * Free Software Foundation; either version 2.1 of the License, or (at your
  * option) any later version.
- * 
- * This program is distributed in the hope that it will be useful, but WITHOUT 
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
- * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License 
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
  * for more details.
- * 
- * You should have received a copy of the GNU Lesser General Public License 
- * along with this program; if not, write to the Free Software Foundation, 
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program; if not, write to the Free Software Foundation,
  * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
@@ -31,7 +31,7 @@ import de.ailis.scilter.util.FileUtils;
 /**
  * A simple command line program to scale a picture with one of the scaling
  * filters of Scilter.
- * 
+ *
  * @author Klaus Reimer (k@ailis.de)
  * @version $Revision$
  */
@@ -51,13 +51,14 @@ public class Scilter
     /**
      * First parameter is the scaling method, second parameter is the source
      * file and the third parameter is the destination file.
-     * 
+     *
      * @param args
      *            The command line arguments
      * @throws IOException
+     *             When file operation fails.
      */
 
-    public static void main(String[] args) throws IOException
+    public static void main(final String[] args) throws IOException
     {
         BufferedImage in, out;
         File file;
@@ -66,7 +67,7 @@ public class Scilter
         {
             System.out.println("Syntax: Scilter ALGORITHM INFILE OUTFILE");
             System.out.println("Implemented algorithms:");
-            for (String name: ScaleFilterFactory.getFilterNames())
+            for (final String name: ScaleFilterFactory.getFilterNames())
             {
                 System.out.print("  ");
                 System.out.println(name);

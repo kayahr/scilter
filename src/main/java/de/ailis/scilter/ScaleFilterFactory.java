@@ -1,6 +1,5 @@
 /*
- * $Id$
- * Copyright (C) 2006 Klaus Reimer <k@ailis.de>
+ * Copyright (C) 2006-2012 Klaus Reimer <k@ailis.de>
  * 
  * This program is free software; you can redistribute it and/or modify it 
  * under the terms of the GNU Lesser General Public License as published by the 
@@ -38,7 +37,6 @@ import de.ailis.scilter.filter.Scale3xFilter;
  * can return an implementation of a desired algorithm.
  * 
  * @author Klaus Reimer (k@ailis.de)
- * @version $Revision$
  */
 
 public class ScaleFilterFactory

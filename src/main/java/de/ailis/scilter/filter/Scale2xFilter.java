@@ -1,6 +1,5 @@
 /*
- * $Id$
- * Copyright (C) 2006 Klaus Reimer <k@ailis.de>
+ * Copyright (C) 2006-2012 Klaus Reimer <k@ailis.de>
  * Based on public domain code ImageScale2x and RawScale2x from Kevin Glass.
  *
  * This program is free software; you can redistribute it and/or modify it
@@ -31,7 +30,6 @@ import de.ailis.scilter.AbstractScaleFilter;
  * into the public domain).
  *
  * @author Klaus Reimer (k@ailis.de)
- * @version $Revision$
  */
 
 public class Scale2xFilter extends AbstractScaleFilter

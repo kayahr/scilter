@@ -1,5 +1,0 @@
-syntax: glob
-target
-.classpath
-.project
-.settings

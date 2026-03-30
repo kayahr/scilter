@@ -4,7 +4,7 @@
 
   <groupId>de.ailis.scilter</groupId>
   <artifactId>scilter</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.2</version>
   <packaging>jar</packaging>
   <name>Scilter</name>
   <url>http://kayahr.github.com/${project.artifactId}/</url>
@@ -46,6 +46,7 @@
     <connection>scm:git:git://github.com/kayahr/${project.artifactId}.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/kayahr/${project.artifactId}.git</developerConnection>
     <url>http://github.com/kayahr/${project.artifactId}</url>
+    <tag>scilter-1.0.2</tag>
   </scm>
 
   <issueManagement>

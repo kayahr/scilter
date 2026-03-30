@@ -6,13 +6,13 @@ Description
 
 Scilter (A shorter name for Scale Filter) is a library which can be used
 to scale images with different algorithms.
-  
+
 The following algorithms are currently supported:
-  
-* [HQX magnification filter][3] (2x, 3x and 4x) from Maxim Stepin. 
+
+* [HQX magnification filter][3] (2x, 3x and 4x) from Maxim Stepin.
 * Nearest Neighbor (2x, 3x and 4x)
 * scale2x and scale3x algorithms from Kevin Glass.
-    
+
 Scilter can also be used as a command line tool for scaling images.
 
 
@@ -38,20 +38,19 @@ using Maven you can simply add it as a dependency:
 
     <repositories>
       <repository>
-        <id>ailis-releases</id>
-        <name>Ailis Maven Releases</name>
-        <url>http://nexus.ailis.de/content/groups/public/</url>
+        <id>github-scilter</id>
+        <url>https://maven.pkg.github.com/kayahr/scilter</url>
       </repository>
     </repositories>
 
     <dependencies>
-      <dependency>   
+      <dependency>
         <groupId>de.ailis.scilter</groupId>
         <artifactId>scilter</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
       </dependency>
     </dependencies>
 
-[1]: http://nexus.ailis.de/content/repositories/releases/de/ailis/scilter/scilter/ "Maven Repository"
+[1]: https://maven.pkg.github.com/kayahr/scilter/ "Maven Repository"
 [2]: http://www.gnu.org/licenses/lgpl.html "License"
 [3]: http://en.wikipedia.org/wiki/Hqx "HQX magnification filter"

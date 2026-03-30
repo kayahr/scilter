@@ -53,4 +53,4 @@ using Maven you can simply add it as a dependency:
 
 [1]: https://github.com/kayahr/scilter/packages/ "Github Maven Repository"
 [2]: http://www.gnu.org/licenses/lgpl.html "License"
-[3]: http://en.wikipedia.org/wiki/Hqx "HQX magnification filter"
+[3]: https://en.wikipedia.org/wiki/Hqx_(algorithm) "HQX magnification filter"

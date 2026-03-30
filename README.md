@@ -33,7 +33,7 @@ FITNESS FOR A PARTICULAR PURPOSE.  See the
 Download
 --------
 
-The JAR can be downloaded from my [Maven Repository][1] or if you are
+The JAR can be downloaded from the [Github Maven Repository][1] or if you are
 using Maven you can simply add it as a dependency:
 
     <repositories>
@@ -51,6 +51,6 @@ using Maven you can simply add it as a dependency:
       </dependency>
     </dependencies>
 
-[1]: https://maven.pkg.github.com/kayahr/scilter/ "Maven Repository"
+[1]: https://github.com/kayahr/scilter/packages/ "Github Maven Repository"
 [2]: http://www.gnu.org/licenses/lgpl.html "License"
 [3]: http://en.wikipedia.org/wiki/Hqx "HQX magnification filter"

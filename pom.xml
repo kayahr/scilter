@@ -14,7 +14,7 @@
   <inceptionYear>2006</inceptionYear>
   <organization>
     <name>Klaus Reimer</name>
-    <url>http://www.ailis.de/~k/</url>
+    <url>https://github.com/kayahr</url>
   </organization>
 
   <licenses>
@@ -34,7 +34,7 @@
         <role>Developer</role>
       </roles>
       <timezone>+1</timezone>
-      <url>http://www.ailis.de/~k/</url>
+      <url>https://github.com/kayahr</url>
     </developer>
   </developers>
 
